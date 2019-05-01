@@ -11,5 +11,43 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition> 
         </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" VerticalAlignment="Bottom" Text="Login" HorizontalAlignment="Center" FontSize="25"></TextBlock>
+            <TextBox Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Background="LightGray" FontSize="20"></TextBox>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="1" VerticalAlignment="Top" Text="Password" HorizontalAlignment="Center" FontSize="25"></TextBlock>
+            <PasswordBox Grid.Column="1"  VerticalAlignment="Center" Background="LightGray" FontSize="20"></PasswordBox>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Button Content="SignIn" Background="Orange" FontSize="15"></Button>
+                <Button Grid.Column="1" Content="SignUp" Background="Orange" FontSize="15"></Button>
+            </Grid>
+        </Grid>
     </Grid>
 </Window>
