@@ -12,6 +12,7 @@ namespace WpfDentalClinicC
         public string SurName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public Diagnosis Diagnosis { get; set; }`
+        public Diagnosis Diagnosis { get; set; }
+        public Adress Adress { get; set; }
     }
 }

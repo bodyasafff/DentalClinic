@@ -64,13 +64,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Client.cs" />
-    <Compile Include="Diagnosis.cs" />
+    <Compile Include="Models\Adress.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\Diagnosis.cs" />
     <Compile Include="ModelClinic.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="User.cs" />
+    <Compile Include="Models\Street.cs" />
+    <Compile Include="Models\User.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

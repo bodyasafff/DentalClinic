@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace WpfDentalClinicC
 {
-    public class Diagnosis
+    public class City
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public string Description { get; set; }
+        public virtual ICollection<Adress> Adresses { get; set; }
     }
 }
