@@ -27,7 +27,7 @@ namespace WpfDentalClinicC
             InitializeComponent();
             using (Service1Client service1Client = new Service1Client())
             {
-                //int i = service1Client.CountClient();
+                int i = service1Client.CountClient();
   //              WcfService1.Models.Client[] c =  service1Client.GetAllClients();
             }
         }
