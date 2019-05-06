@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfDentalClinicC.ServiceReference1;
 
 namespace WpfDentalClinicC
 {
@@ -23,10 +24,9 @@ namespace WpfDentalClinicC
         public MainWindow()
         {
             InitializeComponent();
-            using (ModelClinic modelClinic = new ModelClinic())
+            using (Service1Client Client = new Service1Client())
             {
-                modelClinic.Adresses.Count();
-                modelClinic.SaveChanges();
+
             }
         }
 

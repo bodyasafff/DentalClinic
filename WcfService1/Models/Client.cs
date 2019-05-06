@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WpfDentalClinicC.Models;
+using System.Web;
 
-namespace WpfDentalClinicC
+namespace WcfService1.Models
 {
     public class Client : User
     {

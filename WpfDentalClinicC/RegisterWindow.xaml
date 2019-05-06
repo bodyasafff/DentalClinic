@@ -23,6 +23,15 @@
             <TextBlock Text="Phone" FontSize="20"></TextBlock>
             <TextBox Background="LightGray" FontSize="20"></TextBox>
         </StackPanel>
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Country" FontSize="20"></TextBlock>
+            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="City" FontSize="20"></TextBlock>
+            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="Street" FontSize="20"></TextBlock>
+            <TextBox Background="LightGray" FontSize="20"></TextBox>
+        </StackPanel>
+
         <Button Content="OK" VerticalAlignment="Bottom" HorizontalAlignment="Center" BorderBrush="White" Background="White" FontSize="20" Grid.ColumnSpan="2" Click="btn_AddNewUser_Click"></Button>
     </Grid>
 </Window>

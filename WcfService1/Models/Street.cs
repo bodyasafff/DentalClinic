@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
-namespace WpfDentalClinicC
+namespace WcfService1.Models
 {
-    public class City
+    public class Street
     {
         public int Id { get; set; }
         public string Name { get; set; }
