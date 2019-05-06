@@ -23,6 +23,11 @@ namespace WpfDentalClinicC
         public MainWindow()
         {
             InitializeComponent();
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                modelClinic.Adresses.Count();
+                modelClinic.SaveChanges();
+            }
         }
 
         private void btn_SignUpClick(object sender, RoutedEventArgs e)

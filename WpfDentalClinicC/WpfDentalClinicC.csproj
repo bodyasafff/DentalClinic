@@ -70,6 +70,8 @@
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\Diagnosis.cs" />
     <Compile Include="ModelClinic.cs" />
+    <Compile Include="Models\DocStatus.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="RegisterWindow.xaml.cs">
       <DependentUpon>RegisterWindow.xaml</DependentUpon>
     </Compile>

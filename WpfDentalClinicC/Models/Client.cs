@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WpfDentalClinicC.Models;
 
 namespace WpfDentalClinicC
 {
@@ -12,7 +13,8 @@ namespace WpfDentalClinicC
         public string SurName { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public Diagnosis Diagnosis { get; set; }
+        public virtual ICollection<Diagnosis> Diagnoses { get; set; }
         public Adress Adress { get; set; }
+        public Doctor Doctor { get; set; }
     }
 }
