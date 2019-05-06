@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using WcfService1.Models;//nz chi pralno
+using WpfDentalClinicC.ServiceReference1;
 
 namespace WpfDentalClinicC
 {
@@ -26,6 +28,17 @@ namespace WpfDentalClinicC
 
         private void btn_AddNewUser_Click(object sender, RoutedEventArgs e)
         {
+            Client client = new Client();
+            client.Name = txt_Name.Text;
+            client.SurName = txt_SurName.Text;
+            client.Login = txt_Login.Text;
+            client.Password = txt_Password.Text;
+            client.Email = txt_Email.Text;
+            client.Phone = txt_Phone.Text;
+            using (Service1Client service1Client = new Service1Client())
+            {
+                service1Client.AddClient(client);
+            }
             Close();
         }
     }

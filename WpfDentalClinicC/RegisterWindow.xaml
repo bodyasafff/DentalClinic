@@ -13,23 +13,25 @@
         </Grid.ColumnDefinitions>
         <StackPanel>
             <TextBlock Text="Name" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBox x:Name="txt_Name" Background="LightGray" FontSize="20"></TextBox>
             <TextBlock Text="SurName" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
-            <TextBlock Text="Age" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBox x:Name="txt_SurName" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="Loogin" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Login" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="Password" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Password" Background="LightGray" FontSize="20"></TextBox>
             <TextBlock Text="Email" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
-            <TextBlock Text="Phone" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBox x:Name="txt_Email" Background="LightGray" FontSize="20"></TextBox>
         </StackPanel>
         <StackPanel Grid.Column="1">
+            <TextBlock Text="Phone" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Phone" Background="LightGray" FontSize="20"></TextBox>
             <TextBlock Text="Country" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBox x:Name="txt_Country" Background="LightGray" FontSize="20"></TextBox>
             <TextBlock Text="City" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBox x:Name="txt_City" Background="LightGray" FontSize="20"></TextBox>
             <TextBlock Text="Street" FontSize="20"></TextBlock>
-            <TextBox Background="LightGray" FontSize="20"></TextBox>
+            <TextBox x:Name="txt_Street" Background="LightGray" FontSize="20"></TextBox>
         </StackPanel>
 
         <Button Content="OK" VerticalAlignment="Bottom" HorizontalAlignment="Center" BorderBrush="White" Background="White" FontSize="20" Grid.ColumnSpan="2" Click="btn_AddNewUser_Click"></Button>

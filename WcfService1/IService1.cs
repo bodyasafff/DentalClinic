@@ -1,4 +1,5 @@
 ﻿using System.ServiceModel;
+using WcfService1.Models;
 
 namespace WcfService1
 {
@@ -7,5 +8,7 @@ namespace WcfService1
     {
         [OperationContract]
         void CountClient();
+        [OperationContract]
+        bool AddClient(Client c);
     }
 }
