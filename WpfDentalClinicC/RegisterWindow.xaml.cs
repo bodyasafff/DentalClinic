@@ -35,6 +35,7 @@ namespace WpfDentalClinicC
             client.Password = txt_Password.Text;
             client.Email = txt_Email.Text;
             client.Phone = txt_Phone.Text;
+            
             using (Service1Client service1Client = new Service1Client())
             {
                 service1Client.AddClient(client);

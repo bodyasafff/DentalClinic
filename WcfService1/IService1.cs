@@ -12,5 +12,9 @@ namespace WcfService1
         bool AddClient(Client c);
         [OperationContract]
         Client[] GetAllClients();
+        [OperationContract]
+        Adress[] GetAllAdresses();
+        [OperationContract]
+        void AddAdress(Adress a);
     }
 }
