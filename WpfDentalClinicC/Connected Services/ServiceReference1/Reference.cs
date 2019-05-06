@@ -16,10 +16,13 @@ namespace WpfDentalClinicC.ServiceReference1 {
     public interface IService1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/CountClient", ReplyAction="http://tempuri.org/IService1/CountClientResponse")]
-        void CountClient();
+        int CountClient();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddClient", ReplyAction="http://tempuri.org/IService1/AddClientResponse")]
         bool AddClient(WcfService1.Models.Client c);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllClients", ReplyAction="http://tempuri.org/IService1/GetAllClientsResponse")]
+        WcfService1.Models.Client[] GetAllClients();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,12 +52,16 @@ namespace WpfDentalClinicC.ServiceReference1 {
                 base(binding, remoteAddress) {
         }
         
-        public void CountClient() {
-            base.Channel.CountClient();
+        public int CountClient() {
+            return base.Channel.CountClient();
         }
         
         public bool AddClient(WcfService1.Models.Client c) {
             return base.Channel.AddClient(c);
+        }
+        
+        public WcfService1.Models.Client[] GetAllClients() {
+            return base.Channel.GetAllClients();
         }
     }
 }

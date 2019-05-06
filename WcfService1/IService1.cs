@@ -7,8 +7,10 @@ namespace WcfService1
     public interface IService1
     {
         [OperationContract]
-        void CountClient();
+        int CountClient();
         [OperationContract]
         bool AddClient(Client c);
+        [OperationContract]
+        Client[] GetAllClients();
     }
 }

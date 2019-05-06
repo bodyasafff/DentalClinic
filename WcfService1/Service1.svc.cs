@@ -9,6 +9,7 @@ using WcfService1.Models;
 
 namespace WcfService1
 {
+    [DataContract]
     public class Service1 : IService1
     {
         public bool AddClient(Client c)
@@ -20,11 +21,20 @@ namespace WcfService1
             }
             return true;
         }
-        public void CountClient()
+        public int CountClient()
         {
             using (ModelClinic modelClinic = new ModelClinic())
             {
-                modelClinic.Adresses.Count();
+                return modelClinic.Clients.Count();
+            }
+        }
+
+        public Client[] GetAllClients()
+        {
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                Client[] clients= modelClinic.Clients.ToArray();
+                return clients;
             }
         }
     }

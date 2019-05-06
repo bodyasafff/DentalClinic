@@ -21,9 +21,15 @@ namespace WpfDentalClinicC
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<WcfService1.Models.Client> clients = new List<WcfService1.Models.Client>();
         public MainWindow()
         {
             InitializeComponent();
+            using (Service1Client service1Client = new Service1Client())
+            {
+                //int i = service1Client.CountClient();
+                WcfService1.Models.Client[] c =  service1Client.GetAllClients();
+            }
         }
 
         private void btn_SignUpClick(object sender, RoutedEventArgs e)
