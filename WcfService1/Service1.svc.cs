@@ -20,6 +20,15 @@ namespace WcfService1
             }
         }
 
+        public void AddCity(City c)
+        {
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                modelClinic.Cities.Add(c);
+                modelClinic.SaveChanges();
+            }
+        }
+
         public bool AddClient(Client c)
         {
             using (ModelClinic modelClinic = new ModelClinic())
@@ -42,6 +51,14 @@ namespace WcfService1
             using (ModelClinic modelClinic = new ModelClinic())
             {
                 return modelClinic.Adresses.ToArray();
+            }
+        }
+
+        public City[] GetAllCityes()
+        {
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                return modelClinic.Cities.ToArray();
             }
         }
 

@@ -120,6 +120,7 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\WcfService1.Models.Adress.datasource" />
+    <None Include="Properties\DataSources\WcfService1.Models.City.datasource" />
     <None Include="Properties\DataSources\WcfService1.Models.Client.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

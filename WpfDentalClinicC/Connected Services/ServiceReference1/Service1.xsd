@@ -63,4 +63,28 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="AddCity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService1.Models" minOccurs="0" name="c" nillable="true" type="q5:City" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddCityResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCityes">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllCityesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService1.Models" minOccurs="0" name="GetAllCityesResult" nillable="true" type="q6:ArrayOfCity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

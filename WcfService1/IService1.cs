@@ -16,5 +16,9 @@ namespace WcfService1
         Adress[] GetAllAdresses();
         [OperationContract]
         void AddAdress(Adress a);
+        [OperationContract]
+        void AddCity(City c);
+        [OperationContract]
+        City[] GetAllCityes();
     }
 }
