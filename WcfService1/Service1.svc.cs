@@ -38,6 +38,24 @@ namespace WcfService1
             }
             return true;
         }
+
+        public bool ChakLoginAddNewClient(string login)
+        {
+            bool Chak = false;
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                foreach (var item in modelClinic.Clients)
+                {
+                    if (item.Login == login)
+                    {
+                        Chak = true;
+                        break;
+                    }
+                }
+            }
+            return Chak;
+        }
+
         public int CountClient()
         {
             using (ModelClinic modelClinic = new ModelClinic())
@@ -72,5 +90,21 @@ namespace WcfService1
             }
         }
 
+        public bool LogIn(string login, string password)
+        {
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                bool chak = false;
+                foreach (var item in modelClinic.Clients)
+                {
+                    if (item.Login == login && item.Password == login)
+                    {
+                        chak = true;
+                        break;
+                    }
+                }
+                return chak;
+            }
+        }
     }
 }

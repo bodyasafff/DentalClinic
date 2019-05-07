@@ -24,10 +24,6 @@ namespace WpfDentalClinicC
         public MainWindow()
         {
             InitializeComponent();
-            using (Service1Client service1Client = new Service1Client())
-            {
-                 ClientConstList.Clients = service1Client.GetAllClients().ToList();
-            }
         }
         private void btn_SignUpClick(object sender, RoutedEventArgs e)
         {
@@ -37,21 +33,19 @@ namespace WpfDentalClinicC
 
         private void btn_SignInClick(object sender, RoutedEventArgs e)
         {
-            bool chak = false;
-            foreach (var item in ClientConstList.Clients)
+            using (Service1Client service1Client = new Service1Client())
             {
-                if(item.Login == txt_Login.Text && item.Password == txt_Password.Password)
+                bool Chak = service1Client.LogIn(txt_Login.Text,txt_Password.Password);
+                if(Chak == true)
                 {
                     WorkWindow workWindow = new WorkWindow();
                     workWindow.Show();
-                    chak = true;
                     Close();
-                    break;
                 }
-            }
-            if(chak == false)
-            {
-                MessageBox.Show("Логін або пароль введені не правильно","Увага!");
+                else
+                {
+                    MessageBox.Show("Не праавильно ввеедений логін, або пароль");
+                }
             }
         }
     }

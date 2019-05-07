@@ -20,5 +20,9 @@ namespace WcfService1
         void AddCity(City c);
         [OperationContract]
         City[] GetAllCityes();
+        [OperationContract]
+        bool LogIn(string login,string password);
+        [OperationContract]
+        bool ChakLoginAddNewClient(string login);
     }
 }

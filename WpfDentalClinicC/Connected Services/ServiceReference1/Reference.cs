@@ -35,6 +35,12 @@ namespace WpfDentalClinicC.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllCityes", ReplyAction="http://tempuri.org/IService1/GetAllCityesResponse")]
         WcfService1.Models.City[] GetAllCityes();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LogIn", ReplyAction="http://tempuri.org/IService1/LogInResponse")]
+        bool LogIn([System.ServiceModel.MessageParameterAttribute(Name="login")] string login1, string password);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChakLoginAddNewClient", ReplyAction="http://tempuri.org/IService1/ChakLoginAddNewClientResponse")]
+        bool ChakLoginAddNewClient(string login);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -90,6 +96,14 @@ namespace WpfDentalClinicC.ServiceReference1 {
         
         public WcfService1.Models.City[] GetAllCityes() {
             return base.Channel.GetAllCityes();
+        }
+        
+        public bool LogIn(string login1, string password) {
+            return base.Channel.LogIn(login1, password);
+        }
+        
+        public bool ChakLoginAddNewClient(string login) {
+            return base.Channel.ChakLoginAddNewClient(login);
         }
     }
 }
