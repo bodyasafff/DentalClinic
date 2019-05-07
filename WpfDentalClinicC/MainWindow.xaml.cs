@@ -28,15 +28,6 @@ namespace WpfDentalClinicC
             using (Service1Client service1Client = new Service1Client())
             {
                 WcfService1.Models.City[] cities = service1Client.GetAllCityes();
-               // WcfService1.Models.City city = new WcfService1.Models.City();
-                //city.Name = "Dubno";
-               // service1Client.AddCity(city);
-                //int i = service1Client.CountClient();
-                //// service1Client.GetAllClients();
-                //service1Client.GetAllAdresses();
-                //WcfService1.Models.Adress adress = new WcfService1.Models.Adress();
-
-                //service1Client.AddAdress();
             }
         }
 
@@ -44,6 +35,11 @@ namespace WpfDentalClinicC
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
+        }
+
+        private void btn_SignInClick(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

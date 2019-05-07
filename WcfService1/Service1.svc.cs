@@ -66,6 +66,7 @@ namespace WcfService1
         {
             using (ModelClinic modelClinic = new ModelClinic())
             {
+                modelClinic.Configuration.ProxyCreationEnabled = false;
                 Client[] clients = modelClinic.Clients.ToArray();
                 return clients;
             }
