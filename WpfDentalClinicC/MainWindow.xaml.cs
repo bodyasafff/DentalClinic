@@ -27,7 +27,7 @@ namespace WpfDentalClinicC
             InitializeComponent();
             using (Service1Client service1Client = new Service1Client())
             {
-                WcfService1.Models.City[] cities = service1Client.GetAllCityes();
+                 clients = service1Client.GetAllClients().ToList();
             }
         }
 
@@ -39,7 +39,21 @@ namespace WpfDentalClinicC
 
         private void btn_SignInClick(object sender, RoutedEventArgs e)
         {
-
+            bool chak = false;
+            foreach (var item in clients)
+            {
+                if(item.Login == txt_Login.Text && item.Password == txt_Password.Password)
+                {
+                    WorkWindow workWindow = new WorkWindow();
+                    workWindow.Show();
+                    chak = true;
+                    break;
+                }
+            }
+            if(chak == false)
+            {
+                MessageBox.Show("Логін або пароль введені не правильно","Увага!");
+            }
         }
     }
 }
