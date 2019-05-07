@@ -37,7 +37,7 @@ namespace WpfDentalClinicC
             {
                 bool Chak = service1Client.LogIn(txt_Login.Text,txt_Password.Password);
                 if(Chak == true)
-                {
+                { 
                     WorkWindow workWindow = new WorkWindow();
                     workWindow.Show();
                     Close();
