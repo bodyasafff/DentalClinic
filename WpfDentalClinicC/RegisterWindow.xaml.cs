@@ -21,9 +21,14 @@ namespace WpfDentalClinicC
     /// </summary>
     public partial class RegisterWindow : Window
     {
+        public List<WcfService1.Models.Client> clients = new List<WcfService1.Models.Client>();
         public RegisterWindow()
         {
             InitializeComponent();
+            using (Service1Client service1Client = new Service1Client())
+            {
+                clients = service1Client.GetAllClients().ToList();
+            }
         }
 
         private void btn_AddNewUser_Click(object sender, RoutedEventArgs e)
@@ -34,13 +39,29 @@ namespace WpfDentalClinicC
             client.Login = txt_Login.Text;
             client.Password = txt_Password.Text;
             client.Email = txt_Email.Text;
-            client.Phone = txt_Phone.Text;
-            
+            client.Phone = txt_Phone.Text;            
             using (Service1Client service1Client = new Service1Client())
             {
-                service1Client.AddClient(client);
-            }
-            Close();
+                bool Chak = false;
+                foreach (var item in clients)
+                {
+                    if(item.Login == txt_Login.Text)
+                    {
+                        Chak = true;
+                        break;
+                    }
+                }
+                if (Chak == false)
+                {
+                    service1Client.AddClient(client);
+                    MessageBox.Show("Реєстрація пройшла успішно");
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Даний логін уже занятий","Увага");
+                }
+            }          
         }
     }
 }

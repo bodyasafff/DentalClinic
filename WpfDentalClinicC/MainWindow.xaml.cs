@@ -47,6 +47,7 @@ namespace WpfDentalClinicC
                     WorkWindow workWindow = new WorkWindow();
                     workWindow.Show();
                     chak = true;
+                    Close();
                     break;
                 }
             }
