@@ -21,16 +21,14 @@ namespace WpfDentalClinicC
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<WcfService1.Models.Client> clients = new List<WcfService1.Models.Client>();
         public MainWindow()
         {
             InitializeComponent();
             using (Service1Client service1Client = new Service1Client())
             {
-                 clients = service1Client.GetAllClients().ToList();
+                 ClientConstList.Clients = service1Client.GetAllClients().ToList();
             }
         }
-
         private void btn_SignUpClick(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow();
@@ -40,7 +38,7 @@ namespace WpfDentalClinicC
         private void btn_SignInClick(object sender, RoutedEventArgs e)
         {
             bool chak = false;
-            foreach (var item in clients)
+            foreach (var item in ClientConstList.Clients)
             {
                 if(item.Login == txt_Login.Text && item.Password == txt_Password.Password)
                 {

@@ -54,6 +54,7 @@ namespace WpfDentalClinicC
                 if (Chak == false)
                 {
                     service1Client.AddClient(client);
+
                     MessageBox.Show("Реєстрація пройшла успішно");
                     Close();
                 }

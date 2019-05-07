@@ -7,6 +7,10 @@
         mc:Ignorable="d"
         Title="WorkWindow" Height="450" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
         
     </Grid>
 </Window>
