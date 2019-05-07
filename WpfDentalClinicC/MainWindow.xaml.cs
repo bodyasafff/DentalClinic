@@ -24,7 +24,7 @@ namespace WpfDentalClinicC
         public MainWindow()
         {
             InitializeComponent();
-        }
+        } 
         private void btn_SignUpClick(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow();
