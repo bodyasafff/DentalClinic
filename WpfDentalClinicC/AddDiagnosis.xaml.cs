@@ -16,21 +16,15 @@ using WcfService1.Models;
 namespace WpfDentalClinicC
 {
     /// <summary>
-    /// Interaction logic for WorkWindow.xaml
+    /// Interaction logic for AddDiagnosis.xaml
     /// </summary>
-    public partial class WorkWindow : Window
+    public partial class AddDiagnosis : Window
     {
-        Client client = new Client();
-        public WorkWindow(Client c)
+        Client Client = new Client();
+        public AddDiagnosis(Client c)
         {
             InitializeComponent();
-            client = c;
-        }
-
-        private void btn_AddDiagnosisClick(object sender, RoutedEventArgs e)
-        {
-            AddDiagnosis addDiagnosis = new AddDiagnosis(client);
-            addDiagnosis.Show();
+            Client = c;
         }
     }
 }

@@ -86,6 +86,14 @@ namespace WcfService1
             return true;
         }
 
+        public void AddDiagnosis(Client client)
+        {
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                
+            }
+        }
+
         public bool ChakLoginAddNewClient(string login)
         {
             bool Chak = false;
@@ -135,6 +143,20 @@ namespace WcfService1
                 Client[] clients = modelClinic.Clients.ToArray();
                 return clients;
             }
+        }
+
+        public Client GetClient(string login, string password)
+        {
+            using (ModelClinic modelClinic = new ModelClinic())
+            {
+                modelClinic.Configuration.ProxyCreationEnabled = false;
+                foreach (var item in modelClinic.Clients)
+                {
+                    if (item.Login == login && item.Password == password)
+                        return item;
+                }
+            }
+            return null;
         }
 
         public bool LogIn(string login, string password)

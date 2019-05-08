@@ -24,5 +24,9 @@ namespace WcfService1
         bool LogIn(string login,string password);
         [OperationContract]
         bool ChakLoginAddNewClient(string login);
+        [OperationContract]
+        Client GetClient(string login, string password);
+        [OperationContract]
+        void AddDiagnosis(Client client);
     }
 }

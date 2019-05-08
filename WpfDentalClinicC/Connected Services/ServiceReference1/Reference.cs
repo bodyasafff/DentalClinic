@@ -41,6 +41,9 @@ namespace WpfDentalClinicC.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/ChakLoginAddNewClient", ReplyAction="http://tempuri.org/IService1/ChakLoginAddNewClientResponse")]
         bool ChakLoginAddNewClient(string login);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetClient", ReplyAction="http://tempuri.org/IService1/GetClientResponse")]
+        WcfService1.Models.Client GetClient(string login, string password);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -104,6 +107,10 @@ namespace WpfDentalClinicC.ServiceReference1 {
         
         public bool ChakLoginAddNewClient(string login) {
             return base.Channel.ChakLoginAddNewClient(login);
+        }
+        
+        public WcfService1.Models.Client GetClient(string login, string password) {
+            return base.Channel.GetClient(login, password);
         }
     }
 }

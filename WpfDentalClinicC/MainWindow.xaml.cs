@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WcfService1.Models;
 using WpfDentalClinicC.ServiceReference1;
 
 namespace WpfDentalClinicC
@@ -37,10 +38,18 @@ namespace WpfDentalClinicC
             {
                 bool Chak = service1Client.LogIn(txt_Login.Text,txt_Password.Password);
                 if(Chak == true)
-                { 
-                    WorkWindow workWindow = new WorkWindow();
-                    workWindow.Show();
-                    Close();
+                {
+                    Client client = service1Client.GetClient(txt_Login.Text,txt_Password.Password);
+                    if (client != null)
+                    {
+                        WorkWindow workWindow = new WorkWindow(client);
+                        workWindow.Show();
+                        Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Виникла помилка))))");
+                    }
                 }
                 else
                 {
