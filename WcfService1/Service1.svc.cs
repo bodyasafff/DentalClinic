@@ -29,10 +29,57 @@ namespace WcfService1
             }
         }
 
-        public bool AddClient(Client c)
+        public bool AddClient(Client c,string city,string street,string country)
         {
             using (ModelClinic modelClinic = new ModelClinic())
             {
+                Adress adress = new Adress();
+                bool ChakCountry = false;
+                bool ChakCity = false;
+                bool ChakStreet = false;
+                foreach (var item in modelClinic.Cities)
+                {
+                    if (item.Name == city)
+                    {
+                        adress.City = item;
+                        ChakCity = true;
+                    }
+                }
+                foreach (var item in modelClinic.Streets)
+                {
+                    if (item.Name == street)
+                    {
+                        adress.Street = item;
+                        ChakStreet = true;
+                    }
+                }
+                foreach (var item in modelClinic.Countries)
+                {
+                    if (item.Name == country)
+                    {
+                        adress.Country = item;
+                        ChakCountry = true;
+                    }
+                }
+                if(ChakCity == false)
+                {
+                    City NewCity = new City();
+                    NewCity.Name = city;
+                    adress.City = NewCity;
+                }
+                if(ChakStreet == false)
+                {
+                    Street NewStreet = new Street();
+                    NewStreet.Name = street;
+                    adress.Street = NewStreet;
+                }
+                if(ChakCountry == false)
+                {
+                    Country NewCountry = new Country();
+                    NewCountry.Name = country;
+                    adress.Country = NewCountry;
+                }
+                c.Adress = adress;
                 modelClinic.Clients.Add(c);
                 modelClinic.SaveChanges();
             }

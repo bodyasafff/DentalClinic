@@ -40,7 +40,7 @@ namespace WpfDentalClinicC
                 bool Chak = service1Client.ChakLoginAddNewClient(txt_Login.Text);
                 if(Chak == false)
                 {
-                    service1Client.AddClient(client);
+                    service1Client.AddClient(client,txt_City.Text,txt_Street.Text,txt_Country.Text);
                     Close();
                 }
                 else

@@ -19,7 +19,7 @@ namespace WpfDentalClinicC.ServiceReference1 {
         int CountClient();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddClient", ReplyAction="http://tempuri.org/IService1/AddClientResponse")]
-        bool AddClient(WcfService1.Models.Client c);
+        bool AddClient(WcfService1.Models.Client c, string city, string street, string country);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllClients", ReplyAction="http://tempuri.org/IService1/GetAllClientsResponse")]
         WcfService1.Models.Client[] GetAllClients();
@@ -74,8 +74,8 @@ namespace WpfDentalClinicC.ServiceReference1 {
             return base.Channel.CountClient();
         }
         
-        public bool AddClient(WcfService1.Models.Client c) {
-            return base.Channel.AddClient(c);
+        public bool AddClient(WcfService1.Models.Client c, string city, string street, string country) {
+            return base.Channel.AddClient(c, city, street, country);
         }
         
         public WcfService1.Models.Client[] GetAllClients() {

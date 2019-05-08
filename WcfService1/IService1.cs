@@ -9,7 +9,7 @@ namespace WcfService1
         [OperationContract]
         int CountClient();
         [OperationContract]
-        bool AddClient(Client c);
+        bool AddClient(Client c,string city, string street, string country);
         [OperationContract]
         Client[] GetAllClients();
         [OperationContract]
