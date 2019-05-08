@@ -67,6 +67,12 @@
   <wsdl:message name="IService1_GetClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetClientResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_AddDiagnosis_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDiagnosis" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDiagnosis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDiagnosisResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="CountClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountClient" message="tns:IService1_CountClient_InputMessage" />
@@ -107,6 +113,10 @@
     <wsdl:operation name="GetClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetClient" message="tns:IService1_GetClient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetClientResponse" message="tns:IService1_GetClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDiagnosis">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddDiagnosis" message="tns:IService1_AddDiagnosis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddDiagnosisResponse" message="tns:IService1_AddDiagnosis_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -194,6 +204,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetClient">
       <soap:operation soapAction="http://tempuri.org/IService1/GetClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDiagnosis">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddDiagnosis" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

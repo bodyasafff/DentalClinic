@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WcfService1.Models;
+using WpfDentalClinicC.ServiceReference1;
 
 namespace WpfDentalClinicC
 {
@@ -25,6 +26,15 @@ namespace WpfDentalClinicC
         {
             InitializeComponent();
             Client = c;
+        }
+
+        private void btn_AddDiagnosisClick(object sender, RoutedEventArgs e)
+        {
+            using (Service1Client service1Client = new Service1Client())
+            {
+                service1Client.AddDiagnosis(Client,txt_NameDiagnosis.Text,txt_Description.Text);
+                Close();
+            }
         }
     }
 }

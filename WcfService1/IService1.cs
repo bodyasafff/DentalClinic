@@ -27,6 +27,6 @@ namespace WcfService1
         [OperationContract]
         Client GetClient(string login, string password);
         [OperationContract]
-        void AddDiagnosis(Client client);
+        void AddDiagnosis(Client client,string name,string description);
     }
 }

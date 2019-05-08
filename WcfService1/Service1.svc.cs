@@ -86,11 +86,29 @@ namespace WcfService1
             return true;
         }
 
-        public void AddDiagnosis(Client client)
+        public void AddDiagnosis(Client client,string name, string description)
         {
+            bool ChakNameDiagnosis = false;
+            Diagnosis diagnosis = new Diagnosis();
             using (ModelClinic modelClinic = new ModelClinic())
             {
-                
+                foreach (var item in modelClinic.Diagnoses)
+                {
+                    if(item.Name == name)
+                    {
+                        diagnosis = item;
+                        ChakNameDiagnosis = true;
+                        break;
+                    }
+                }
+                if(ChakNameDiagnosis == false)
+                {
+                    diagnosis.Name = name;
+                    diagnosis.Description = description;
+                }
+                var cli = modelClinic.Clients.SingleOrDefault(d => d.Id == client.Id);
+                cli.Diagnoses.Add(diagnosis);
+                modelClinic.SaveChanges();
             }
         }
 
@@ -149,7 +167,7 @@ namespace WcfService1
         {
             using (ModelClinic modelClinic = new ModelClinic())
             {
-                modelClinic.Configuration.ProxyCreationEnabled = false;
+               // modelClinic.Configuration.ProxyCreationEnabled = false;
                 foreach (var item in modelClinic.Clients)
                 {
                     if (item.Login == login && item.Password == password)

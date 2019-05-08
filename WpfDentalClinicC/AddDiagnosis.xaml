@@ -13,9 +13,11 @@
         </Grid.ColumnDefinitions>
         <StackPanel>
             <TextBlock Text="Diagnosis" FontSize="25"></TextBlock>
-            <TextBox FontSize="25"></TextBox>
+            <TextBox x:Name="txt_NameDiagnosis" FontSize="25"></TextBox>
             <TextBlock Text="Description" FontSize="25"></TextBlock>
-            <TextBox FontSize="25"></TextBox>
+            <TextBox x:Name="txt_Description" FontSize="25"></TextBox>
+            
         </StackPanel>
+        <Button VerticalAlignment="Bottom" Content="Add" FontSize="25" Click="btn_AddDiagnosisClick"></Button>
     </Grid>
 </Window>
