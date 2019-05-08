@@ -74,6 +74,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ModelClinic.cs" />
+    <Compile Include="ModelsToMap\ModelAdress.cs" />
+    <Compile Include="ModelsToMap\ModelCity.cs" />
+    <Compile Include="ModelsToMap\ModelClient.cs" />
+    <Compile Include="ModelsToMap\ModelCountry.cs" />
+    <Compile Include="ModelsToMap\ModelDiagnosis.cs" />
+    <Compile Include="ModelsToMap\ModelDocStatus.cs" />
+    <Compile Include="ModelsToMap\ModelDoctor.cs" />
+    <Compile Include="ModelsToMap\ModelStreet.cs" />
     <Compile Include="Models\Adress.cs" />
     <Compile Include="Models\City.cs" />
     <Compile Include="Models\Client.cs" />

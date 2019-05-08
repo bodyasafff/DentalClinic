@@ -167,7 +167,7 @@ namespace WcfService1
         {
             using (ModelClinic modelClinic = new ModelClinic())
             {
-               // modelClinic.Configuration.ProxyCreationEnabled = false;
+                modelClinic.Configuration.ProxyCreationEnabled = false;
                 foreach (var item in modelClinic.Clients)
                 {
                     if (item.Login == login && item.Password == password)
