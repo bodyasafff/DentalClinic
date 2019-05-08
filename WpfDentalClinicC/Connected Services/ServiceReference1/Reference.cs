@@ -43,10 +43,13 @@ namespace WpfDentalClinicC.ServiceReference1 {
         bool ChakLoginAddNewClient(string login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetClient", ReplyAction="http://tempuri.org/IService1/GetClientResponse")]
-        WcfService1.Models.Client GetClient(string login, string password);
+        WcfService1.ModelsToMap.ModelClient GetClient(string login, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDiagnosis", ReplyAction="http://tempuri.org/IService1/AddDiagnosisResponse")]
         void AddDiagnosis(WcfService1.Models.Client client, string name, string description);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InitializeMapper", ReplyAction="http://tempuri.org/IService1/InitializeMapperResponse")]
+        void InitializeMapper();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -112,12 +115,16 @@ namespace WpfDentalClinicC.ServiceReference1 {
             return base.Channel.ChakLoginAddNewClient(login);
         }
         
-        public WcfService1.Models.Client GetClient(string login, string password) {
+        public WcfService1.ModelsToMap.ModelClient GetClient(string login, string password) {
             return base.Channel.GetClient(login, password);
         }
         
         public void AddDiagnosis(WcfService1.Models.Client client, string name, string description) {
             base.Channel.AddDiagnosis(client, name, description);
+        }
+        
+        public void InitializeMapper() {
+            base.Channel.InitializeMapper();
         }
     }
 }

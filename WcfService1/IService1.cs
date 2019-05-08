@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using WcfService1.Models;
+using WcfService1.ModelsToMap;
 
 namespace WcfService1
 {
@@ -25,8 +26,10 @@ namespace WcfService1
         [OperationContract]
         bool ChakLoginAddNewClient(string login);
         [OperationContract]
-        Client GetClient(string login, string password);
+        ModelClient GetClient(string login, string password);
         [OperationContract]
         void AddDiagnosis(Client client,string name,string description);
+        [OperationContract]
+        void InitializeMapper();
     }
 }

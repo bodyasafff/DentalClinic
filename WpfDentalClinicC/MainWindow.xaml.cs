@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WcfService1.Models;
+using WcfService1.ModelsToMap;
 using WpfDentalClinicC.ServiceReference1;
 
 namespace WpfDentalClinicC
@@ -25,6 +27,10 @@ namespace WpfDentalClinicC
         public MainWindow()
         {
             InitializeComponent();
+            using (Service1Client service1Client = new Service1Client())
+            {
+                service1Client.InitializeMapper();
+            }
         } 
         private void btn_SignUpClick(object sender, RoutedEventArgs e)
         {
@@ -39,7 +45,7 @@ namespace WpfDentalClinicC
                 bool Chak = service1Client.LogIn(txt_Login.Text,txt_Password.Password);
                 if(Chak == true)
                 {
-                    Client client = service1Client.GetClient(txt_Login.Text,txt_Password.Password);
+                    ModelClient client = service1Client.GetClient(txt_Login.Text, txt_Password.Password);
                     if (client != null)
                     {
                         WorkWindow workWindow = new WorkWindow(client);

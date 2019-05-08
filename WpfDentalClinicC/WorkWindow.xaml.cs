@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WcfService1.Models;
+using WcfService1.ModelsToMap;
 
 namespace WpfDentalClinicC
 {
@@ -20,8 +21,8 @@ namespace WpfDentalClinicC
     /// </summary>
     public partial class WorkWindow : Window
     {
-        Client client = new Client();
-        public WorkWindow(Client c)
+        ModelClient client = new ModelClient();
+        public WorkWindow(ModelClient c)
         {
             InitializeComponent();
             client = c;

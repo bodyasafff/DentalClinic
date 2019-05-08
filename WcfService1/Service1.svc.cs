@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -6,6 +7,7 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using WcfService1.Models;
+using WcfService1.ModelsToMap;
 
 namespace WcfService1
 {
@@ -163,7 +165,7 @@ namespace WcfService1
             }
         }
 
-        public Client GetClient(string login, string password)
+        public ModelClient GetClient(string login, string password)
         {
             using (ModelClinic modelClinic = new ModelClinic())
             {
@@ -171,10 +173,27 @@ namespace WcfService1
                 foreach (var item in modelClinic.Clients)
                 {
                     if (item.Login == login && item.Password == password)
-                        return item;
+                    {
+                        ModelClient client = Mapper.Map<ModelClient>(item);
+                        return client;
+                    }
                 }
             }
             return null;
+        }
+
+        public void InitializeMapper()
+        {
+            Mapper.Initialize(ac => {
+                ac.CreateMap<Adress, ModelAdress>();
+                ac.CreateMap<City, ModelCity>();
+                ac.CreateMap<Client, ModelClient>();
+                ac.CreateMap<Country, ModelCountry>();
+                ac.CreateMap<Diagnosis, ModelDiagnosis>();
+                ac.CreateMap<DocStatus, ModelDocStatus>();
+                ac.CreateMap<Doctor, ModelDoctor>();
+                ac.CreateMap<Street, ModelStreet>();
+            });
         }
 
         public bool LogIn(string login, string password)
