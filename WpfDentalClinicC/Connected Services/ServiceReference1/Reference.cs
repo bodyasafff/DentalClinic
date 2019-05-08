@@ -19,22 +19,7 @@ namespace WpfDentalClinicC.ServiceReference1 {
         int CountClient();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddClient", ReplyAction="http://tempuri.org/IService1/AddClientResponse")]
-        bool AddClient(WcfService1.Models.Client c, string city, string street, string country);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllClients", ReplyAction="http://tempuri.org/IService1/GetAllClientsResponse")]
-        WcfService1.Models.Client[] GetAllClients();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllAdresses", ReplyAction="http://tempuri.org/IService1/GetAllAdressesResponse")]
-        WcfService1.Models.Adress[] GetAllAdresses();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddAdress", ReplyAction="http://tempuri.org/IService1/AddAdressResponse")]
-        void AddAdress(WcfService1.Models.Adress a);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddCity", ReplyAction="http://tempuri.org/IService1/AddCityResponse")]
-        void AddCity(WcfService1.Models.City c);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetAllCityes", ReplyAction="http://tempuri.org/IService1/GetAllCityesResponse")]
-        WcfService1.Models.City[] GetAllCityes();
+        bool AddClient(WcfService1.ModelsToMap.ModelClient c, string city, string street, string country);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/LogIn", ReplyAction="http://tempuri.org/IService1/LogInResponse")]
         bool LogIn([System.ServiceModel.MessageParameterAttribute(Name="login")] string login1, string password);
@@ -83,28 +68,8 @@ namespace WpfDentalClinicC.ServiceReference1 {
             return base.Channel.CountClient();
         }
         
-        public bool AddClient(WcfService1.Models.Client c, string city, string street, string country) {
+        public bool AddClient(WcfService1.ModelsToMap.ModelClient c, string city, string street, string country) {
             return base.Channel.AddClient(c, city, street, country);
-        }
-        
-        public WcfService1.Models.Client[] GetAllClients() {
-            return base.Channel.GetAllClients();
-        }
-        
-        public WcfService1.Models.Adress[] GetAllAdresses() {
-            return base.Channel.GetAllAdresses();
-        }
-        
-        public void AddAdress(WcfService1.Models.Adress a) {
-            base.Channel.AddAdress(a);
-        }
-        
-        public void AddCity(WcfService1.Models.City c) {
-            base.Channel.AddCity(c);
-        }
-        
-        public WcfService1.Models.City[] GetAllCityes() {
-            return base.Channel.GetAllCityes();
         }
         
         public bool LogIn(string login1, string password) {

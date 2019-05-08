@@ -10,17 +10,7 @@ namespace WcfService1
         [OperationContract]
         int CountClient();
         [OperationContract]
-        bool AddClient(Client c,string city, string street, string country);
-        [OperationContract]
-        Client[] GetAllClients();
-        [OperationContract]
-        Adress[] GetAllAdresses();
-        [OperationContract]
-        void AddAdress(Adress a);
-        [OperationContract]
-        void AddCity(City c);
-        [OperationContract]
-        City[] GetAllCityes();
+        bool AddClient(ModelClient c,string city, string street, string country);
         [OperationContract]
         bool LogIn(string login,string password);
         [OperationContract]

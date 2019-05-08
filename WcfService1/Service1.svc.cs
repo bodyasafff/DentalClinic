@@ -14,25 +14,9 @@ namespace WcfService1
     [DataContract]
     public class Service1 : IService1
     {
-        public void AddAdress(Adress a)
+        public bool AddClient(ModelClient c,string city,string street,string country)
         {
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                modelClinic.Adresses.Add(a);
-            }
-        }
-
-        public void AddCity(City c)
-        {
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                modelClinic.Cities.Add(c);
-                modelClinic.SaveChanges();
-            }
-        }
-
-        public bool AddClient(Client c,string city,string street,string country)
-        {
+            Client client = Mapper.Map<Client>(c);
             using (ModelClinic modelClinic = new ModelClinic())
             {
                 Adress adress = new Adress();
@@ -81,8 +65,8 @@ namespace WcfService1
                     NewCountry.Name = country;
                     adress.Country = NewCountry;
                 }
-                c.Adress = adress;
-                modelClinic.Clients.Add(c);
+                client.Adress = adress;
+                modelClinic.Clients.Add(client);
                 modelClinic.SaveChanges();
             }
             return true;
@@ -138,33 +122,6 @@ namespace WcfService1
                 return modelClinic.Clients.Count();
             }
         }
-
-        public Adress[] GetAllAdresses()
-        {
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                return modelClinic.Adresses.ToArray();
-            }
-        }
-
-        public City[] GetAllCityes()
-        {
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                return modelClinic.Cities.ToArray();
-            }
-        }
-
-        public Client[] GetAllClients()
-        {
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                modelClinic.Configuration.ProxyCreationEnabled = false;
-                Client[] clients = modelClinic.Clients.ToArray();
-                return clients;
-            }
-        }
-
         public ModelClient GetClient(string login, string password)
         {
             using (ModelClinic modelClinic = new ModelClinic())
@@ -185,14 +142,14 @@ namespace WcfService1
         public void InitializeMapper()
         {
             Mapper.Initialize(ac => {
-                ac.CreateMap<Adress, ModelAdress>();
-                ac.CreateMap<City, ModelCity>();
-                ac.CreateMap<Client, ModelClient>();
-                ac.CreateMap<Country, ModelCountry>();
-                ac.CreateMap<Diagnosis, ModelDiagnosis>();
-                ac.CreateMap<DocStatus, ModelDocStatus>();
-                ac.CreateMap<Doctor, ModelDoctor>();
-                ac.CreateMap<Street, ModelStreet>();
+                ac.CreateMap<Adress, ModelAdress>().ReverseMap();
+                ac.CreateMap<City, ModelCity>().ReverseMap();
+                ac.CreateMap<Client, ModelClient>().ReverseMap();
+                ac.CreateMap<Country, ModelCountry>().ReverseMap();
+                ac.CreateMap<Diagnosis, ModelDiagnosis>().ReverseMap();
+                ac.CreateMap<DocStatus, ModelDocStatus>().ReverseMap();
+                ac.CreateMap<Doctor, ModelDoctor>().ReverseMap();
+                ac.CreateMap<Street, ModelStreet>().ReverseMap();
             });
         }
 

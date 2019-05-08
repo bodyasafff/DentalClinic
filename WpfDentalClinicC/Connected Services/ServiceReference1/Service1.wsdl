@@ -4,8 +4,8 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost:52879/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost:52879/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:52879/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService1.Models" />
-      <xsd:import schemaLocation="http://localhost:52879/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" />
+      <xsd:import schemaLocation="http://localhost:52879/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" />
+      <xsd:import schemaLocation="http://localhost:52879/Service1.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/WcfService1.Models" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_CountClient_InputMessage">
@@ -19,36 +19,6 @@
   </wsdl:message>
   <wsdl:message name="IService1_AddClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:AddClientResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAllClients_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllClients" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAllClients_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllClientsResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAllAdresses_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllAdresses" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAllAdresses_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllAdressesResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_AddAdress_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddAdress" />
-  </wsdl:message>
-  <wsdl:message name="IService1_AddAdress_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddAdressResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_AddCity_InputMessage">
-    <wsdl:part name="parameters" element="tns:AddCity" />
-  </wsdl:message>
-  <wsdl:message name="IService1_AddCity_OutputMessage">
-    <wsdl:part name="parameters" element="tns:AddCityResponse" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAllCityes_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllCityes" />
-  </wsdl:message>
-  <wsdl:message name="IService1_GetAllCityes_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAllCityesResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_LogIn_InputMessage">
     <wsdl:part name="parameters" element="tns:LogIn" />
@@ -89,26 +59,6 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddClient" message="tns:IService1_AddClient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddClientResponse" message="tns:IService1_AddClient_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAllClients">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllClients" message="tns:IService1_GetAllClients_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllClientsResponse" message="tns:IService1_GetAllClients_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllAdresses">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllAdresses" message="tns:IService1_GetAllAdresses_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllAdressesResponse" message="tns:IService1_GetAllAdresses_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddAdress">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddAdress" message="tns:IService1_AddAdress_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddAdressResponse" message="tns:IService1_AddAdress_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="AddCity">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddCity" message="tns:IService1_AddCity_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddCityResponse" message="tns:IService1_AddCity_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetAllCityes">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAllCityes" message="tns:IService1_GetAllCityes_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAllCityesResponse" message="tns:IService1_GetAllCityes_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="LogIn">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/LogIn" message="tns:IService1_LogIn_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/LogInResponse" message="tns:IService1_LogIn_OutputMessage" />
@@ -143,51 +93,6 @@
     </wsdl:operation>
     <wsdl:operation name="AddClient">
       <soap:operation soapAction="http://tempuri.org/IService1/AddClient" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllClients">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAllClients" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllAdresses">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAllAdresses" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddAdress">
-      <soap:operation soapAction="http://tempuri.org/IService1/AddAdress" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="AddCity">
-      <soap:operation soapAction="http://tempuri.org/IService1/AddCity" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="GetAllCityes">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAllCityes" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
