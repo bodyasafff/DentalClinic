@@ -42,5 +42,12 @@ namespace WpfDentalClinicC
       //      txt_Doctor.Text = client.Doctor.Name;
             txt_Email.Text = client.Email;
         }
+
+        private void btn_ExitClick(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            Close();
+        }
     }
 }
