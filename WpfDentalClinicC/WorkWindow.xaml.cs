@@ -26,12 +26,21 @@ namespace WpfDentalClinicC
         {
             InitializeComponent();
             client = c;
+            FillTextBoxs();
         }
 
         private void btn_AddDiagnosisClick(object sender, RoutedEventArgs e)
         {
             AddDiagnosis addDiagnosis = new AddDiagnosis(client);
             addDiagnosis.Show();
+        }
+        private void FillTextBoxs()
+        {
+            txt_Name.Text = client.Name;
+            txt_SurName.Text = client.SurName;
+            txt_Phone.Text = client.Phone;
+      //      txt_Doctor.Text = client.Doctor.Name;
+            txt_Email.Text = client.Email;
         }
     }
 }
