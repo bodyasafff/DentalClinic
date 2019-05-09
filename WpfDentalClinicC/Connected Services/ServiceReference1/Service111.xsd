@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:52879/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:complexType name="ModelClient">
     <xs:sequence>
-      <xs:element minOccurs="0" name="Adress" nillable="true" type="tns:ModelAdress" />
-      <xs:element minOccurs="0" name="Diagnoses" nillable="true" type="tns:ArrayOfModelDiagnosis" />
-      <xs:element minOccurs="0" name="Doctor" nillable="true" type="tns:ModelDoctor" />
+      <xs:element minOccurs="0" name="AdressId" type="xs:int" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Diagnoses" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="DoctorId" type="xs:int" />
       <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Id" type="xs:int" />
       <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
@@ -15,88 +16,4 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ModelClient" nillable="true" type="tns:ModelClient" />
-  <xs:complexType name="ModelAdress">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="City" nillable="true" type="tns:ModelCity" />
-      <xs:element minOccurs="0" name="Clients" nillable="true" type="tns:ArrayOfModelClient" />
-      <xs:element minOccurs="0" name="Country" nillable="true" type="tns:ModelCountry" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Street" nillable="true" type="tns:ModelStreet" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelAdress" nillable="true" type="tns:ModelAdress" />
-  <xs:complexType name="ModelCity">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Adresses" nillable="true" type="tns:ArrayOfModelAdress" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelCity" nillable="true" type="tns:ModelCity" />
-  <xs:complexType name="ArrayOfModelAdress">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelAdress" nillable="true" type="tns:ModelAdress" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelAdress" nillable="true" type="tns:ArrayOfModelAdress" />
-  <xs:complexType name="ArrayOfModelClient">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelClient" nillable="true" type="tns:ModelClient" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelClient" nillable="true" type="tns:ArrayOfModelClient" />
-  <xs:complexType name="ModelCountry">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Adresses" nillable="true" type="tns:ArrayOfModelAdress" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelCountry" nillable="true" type="tns:ModelCountry" />
-  <xs:complexType name="ModelStreet">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Adresses" nillable="true" type="tns:ArrayOfModelAdress" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelStreet" nillable="true" type="tns:ModelStreet" />
-  <xs:complexType name="ArrayOfModelDiagnosis">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelDiagnosis" nillable="true" type="tns:ModelDiagnosis" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelDiagnosis" nillable="true" type="tns:ArrayOfModelDiagnosis" />
-  <xs:complexType name="ModelDiagnosis">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Clients" nillable="true" type="tns:ArrayOfModelClient" />
-      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelDiagnosis" nillable="true" type="tns:ModelDiagnosis" />
-  <xs:complexType name="ModelDoctor">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Clients" nillable="true" type="tns:ArrayOfModelClient" />
-      <xs:element minOccurs="0" name="DocStatus" nillable="true" type="tns:ModelDocStatus" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelDoctor" nillable="true" type="tns:ModelDoctor" />
-  <xs:complexType name="ModelDocStatus">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="Doctors" nillable="true" type="tns:ArrayOfModelDoctor" />
-      <xs:element minOccurs="0" name="Id" type="xs:int" />
-      <xs:element minOccurs="0" name="NameStatus" nillable="true" type="xs:string" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ModelDocStatus" nillable="true" type="tns:ModelDocStatus" />
-  <xs:complexType name="ArrayOfModelDoctor">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="ModelDoctor" nillable="true" type="tns:ModelDoctor" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="ArrayOfModelDoctor" nillable="true" type="tns:ArrayOfModelDoctor" />
 </xs:schema>

@@ -27,6 +27,7 @@
     <MetadataFile FileName="Service11.xsd" MetadataType="Schema" ID="ac12c179-9d55-45a2-af5b-33929ca60418" SourceId="1" SourceUrl="http://localhost:52879/Service1.svc?xsd=xsd1" />
     <MetadataFile FileName="Service1.wsdl" MetadataType="Wsdl" ID="9d30c2e6-64f3-4f7d-b7e4-222d7ee837ed" SourceId="1" SourceUrl="http://localhost:52879/Service1.svc?wsdl" />
     <MetadataFile FileName="Service12.xsd" MetadataType="Schema" ID="4c214c68-1b1d-4799-9811-c165a351c568" SourceId="1" SourceUrl="http://localhost:52879/Service1.svc?xsd=xsd3" />
+    <MetadataFile FileName="Service13.xsd" MetadataType="Schema" ID="608d4f4c-facd-45a6-87df-11a43101e297" SourceId="1" SourceUrl="http://localhost:52879/Service1.svc?xsd=xsd4" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

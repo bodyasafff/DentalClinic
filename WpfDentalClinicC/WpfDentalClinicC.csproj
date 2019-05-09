@@ -137,6 +137,9 @@
     <None Include="Connected Services\ServiceReference1\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\ServiceReference1\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\WcfService1.Models.Adress.datasource" />
     <None Include="Properties\DataSources\WcfService1.Models.City.datasource" />

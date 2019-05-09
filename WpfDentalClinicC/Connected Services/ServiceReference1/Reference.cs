@@ -32,9 +32,6 @@ namespace WpfDentalClinicC.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDiagnosis", ReplyAction="http://tempuri.org/IService1/AddDiagnosisResponse")]
         void AddDiagnosis(WcfService1.Models.Client client, string name, string description);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/InitializeMapper", ReplyAction="http://tempuri.org/IService1/InitializeMapperResponse")]
-        void InitializeMapper();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -86,10 +83,6 @@ namespace WpfDentalClinicC.ServiceReference1 {
         
         public void AddDiagnosis(WcfService1.Models.Client client, string name, string description) {
             base.Channel.AddDiagnosis(client, name, description);
-        }
-        
-        public void InitializeMapper() {
-            base.Channel.InitializeMapper();
         }
     }
 }

@@ -40,7 +40,6 @@ namespace WcfService1
             }
             return operationResult;
         }
-
         public void AddDiagnosis(Client client,string name, string description)
         {
             bool ChakNameDiagnosis = false;
@@ -66,7 +65,6 @@ namespace WcfService1
                 modelClinic.SaveChanges();
             }
         }
-
         public bool ChakLoginAddNewClient(string login)
         {
             bool Chak = false;
@@ -76,7 +74,6 @@ namespace WcfService1
             }
             return Chak;
         }
-
         public int CountClient()
         {
             using (ModelClinic modelClinic = new ModelClinic())
@@ -84,13 +81,11 @@ namespace WcfService1
                 return modelClinic.Clients.Count();
             }
         }
-
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
         }
-
         protected virtual void Dispose(bool disposing)
         {
             if (!disposed)
@@ -103,12 +98,10 @@ namespace WcfService1
                 disposed = true;
             }
         }
-
         ~Service1()
         {
             Dispose(false);
         }
-
         public ModelClient GetClient(string login, string password)
         {
             using (ModelClinic modelClinic = new ModelClinic())
@@ -120,17 +113,16 @@ namespace WcfService1
                 // try-catch to catch if more than 1 user exists
                 var clientDb = modelClinic.Clients
                     .Include(c1 => c1.Adress)
-                    .Include(c2 => c2.Adress.City)                   
+                    .Include(c2 => c2.Adress.City)
+                    .Include(c3 => c3.Adress.Country)
+                    .Include(c4 => c4.Adress.Street)
                     .SingleOrDefault(clt => clt.Login == login && clt.Password == password);
 
-                operationResult = Mapper.Map<ModelClient>(clientDb);
+                operationResult = MapClient(clientDb);
                //operationResult
                return operationResult;
             }
         }
-
-      
-
         public bool LogIn(string login, string password)
         {
             using (ModelClinic modelClinic = new ModelClinic())
@@ -146,6 +138,22 @@ namespace WcfService1
                 }
                 return chak;
             }
+        }
+
+        public ModelClient MapClient(Client c)
+        {
+            ModelClient modelClient = new ModelClient();
+            modelClient.Id = c.Id;
+            modelClient.Login = c.Login;
+            modelClient.Password = c.Password;
+            modelClient.Name = c.Name;
+            modelClient.Phone = c.Phone;
+            modelClient.SurName = c.SurName;
+            modelClient.Street = c.Adress.Street.Name;
+            modelClient.City = c.Adress.City.Name;
+            modelClient.Country = c.Adress.Country.Name;
+            modelClient.Email = c.Email;
+            return modelClient;
         }
     }
 }

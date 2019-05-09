@@ -26,7 +26,11 @@ namespace WcfService1.ModelsToMap
         [DataMember]
         public int[] Diagnoses { get; set; }
         [DataMember]
-        public int AdressId { get; set; }
+        public string City { get; set; }
+        [DataMember]
+        public string Country { get; set; }
+        [DataMember]
+        public string Street { get; set; }
         [DataMember]
         public int DoctorId { get; set; }
     }

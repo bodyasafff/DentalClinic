@@ -41,6 +41,9 @@ namespace WpfDentalClinicC
             txt_Phone.Text = client.Phone;
       //      txt_Doctor.Text = client.Doctor.Name;
             txt_Email.Text = client.Email;
+            txt_AdressCountry.Text = client.Country;
+            txt_AdressCity.Text = client.City;
+            txt_AdressStreet.Text = client.Street;
         }
 
         private void btn_ExitClick(object sender, RoutedEventArgs e)
