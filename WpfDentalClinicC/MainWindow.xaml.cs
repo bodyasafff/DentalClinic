@@ -1,19 +1,4 @@
-﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using WcfService1.Models;
+﻿using System.Windows;
 using WcfService1.ModelsToMap;
 using WpfDentalClinicC.ServiceReference1;
 
@@ -27,18 +12,14 @@ namespace WpfDentalClinicC
         public MainWindow()
         {
             InitializeComponent();
-            using (Service1Client service1Client = new Service1Client())
-            {
-                service1Client.InitializeMapper();
-            }
         } 
-        private void btn_SignUpClick(object sender, RoutedEventArgs e)
+        private void Btn_SignUpClick(object sender, RoutedEventArgs e)
         {
             RegisterWindow registerWindow = new RegisterWindow();
             registerWindow.Show();
         }
 
-        private void btn_SignInClick(object sender, RoutedEventArgs e)
+        private void Btn_SignInClick(object sender, RoutedEventArgs e)
         {
             using (Service1Client service1Client = new Service1Client())
             {

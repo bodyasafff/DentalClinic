@@ -24,10 +24,10 @@ namespace WcfService1.ModelsToMap
         [DataMember]
         public string Email { get; set; }
         [DataMember]
-        public ModelDiagnosis[] Diagnoses { get; set; }
+        public int[] Diagnoses { get; set; }
         [DataMember]
-        public ModelAdress Adress { get; set; }
+        public int AdressId { get; set; }
         [DataMember]
-        public ModelDoctor Doctor { get; set; }
+        public int DoctorId { get; set; }
     }
 }

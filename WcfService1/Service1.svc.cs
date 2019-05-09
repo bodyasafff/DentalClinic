@@ -1,75 +1,44 @@
 ﻿using AutoMapper;
 using System;
-using System.Collections.Generic;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 using WcfService1.Models;
 using WcfService1.ModelsToMap;
 
 namespace WcfService1
 {
     [DataContract]
-    public class Service1 : IService1
+    public class Service1 : IService1, IDisposable
     {
+        private readonly ModelClinic _dbCtx = new ModelClinic();
+        private bool disposed = false;
         public bool AddClient(ModelClient c,string city,string street,string country)
         {
-            Client client = Mapper.Map<Client>(c);
+            bool operationResult = false;
             using (ModelClinic modelClinic = new ModelClinic())
             {
-                Adress adress = new Adress();
-                bool ChakCountry = false;
-                bool ChakCity = false;
-                bool ChakStreet = false;
-                foreach (var item in modelClinic.Cities)
+                Client client = Mapper.Map<Client>(c);
+                Adress adress = new Adress
                 {
-                    if (item.Name == city)
-                    {
-                        adress.City = item;
-                        ChakCity = true;
-                    }
-                }
-                foreach (var item in modelClinic.Streets)
-                {
-                    if (item.Name == street)
-                    {
-                        adress.Street = item;
-                        ChakStreet = true;
-                    }
-                }
-                foreach (var item in modelClinic.Countries)
-                {
-                    if (item.Name == country)
-                    {
-                        adress.Country = item;
-                        ChakCountry = true;
-                    }
-                }
-                if(ChakCity == false)
-                {
-                    City NewCity = new City();
-                    NewCity.Name = city;
-                    adress.City = NewCity;
-                }
-                if(ChakStreet == false)
-                {
-                    Street NewStreet = new Street();
-                    NewStreet.Name = street;
-                    adress.Street = NewStreet;
-                }
-                if(ChakCountry == false)
-                {
-                    Country NewCountry = new Country();
-                    NewCountry.Name = country;
-                    adress.Country = NewCountry;
-                }
+                    City = modelClinic.Cities.FirstOrDefault(cty => cty.Name == city) ?? new City { Name = city },
+                    Street = modelClinic.Streets.FirstOrDefault(str => str.Name == street) ?? new Street { Name = street },
+                    Country = modelClinic.Countries.FirstOrDefault(ctr => ctr.Name == country) ?? new Country { Name = country },
+                };
                 client.Adress = adress;
-                modelClinic.Clients.Add(client);
-                modelClinic.SaveChanges();
+                try
+                {
+                    modelClinic.Clients.Add(client);
+                    modelClinic.SaveChanges();
+                    operationResult = true;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
-            return true;
+            return operationResult;
         }
 
         public void AddDiagnosis(Client client,string name, string description)
@@ -103,14 +72,7 @@ namespace WcfService1
             bool Chak = false;
             using (ModelClinic modelClinic = new ModelClinic())
             {
-                foreach (var item in modelClinic.Clients)
-                {
-                    if (item.Login == login)
-                    {
-                        Chak = true;
-                        break;
-                    }
-                }
+                Chak = modelClinic.Clients.Any(cl => cl.Login == login);
             }
             return Chak;
         }
@@ -122,36 +84,52 @@ namespace WcfService1
                 return modelClinic.Clients.Count();
             }
         }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!disposed)
+            {
+                if (disposing)
+                {
+                    _dbCtx.Dispose();
+                }
+
+                disposed = true;
+            }
+        }
+
+        ~Service1()
+        {
+            Dispose(false);
+        }
+
         public ModelClient GetClient(string login, string password)
         {
             using (ModelClinic modelClinic = new ModelClinic())
             {
                 modelClinic.Configuration.ProxyCreationEnabled = false;
-                foreach (var item in modelClinic.Clients)
-                {
-                    if (item.Login == login && item.Password == password)
-                    {
-                        ModelClient client = Mapper.Map<ModelClient>(item);
-                        return client;
-                    }
-                }
+                ModelClient operationResult = null;
+
+
+                // try-catch to catch if more than 1 user exists
+                var clientDb = modelClinic.Clients
+                    .Include(c1 => c1.Adress)
+                    .Include(c2 => c2.Adress.City)                   
+                    .SingleOrDefault(clt => clt.Login == login && clt.Password == password);
+
+                operationResult = Mapper.Map<ModelClient>(clientDb);
+               //operationResult
+               return operationResult;
             }
-            return null;
         }
 
-        public void InitializeMapper()
-        {
-            Mapper.Initialize(ac => {
-                ac.CreateMap<Adress, ModelAdress>().ReverseMap();
-                ac.CreateMap<City, ModelCity>().ReverseMap();
-                ac.CreateMap<Client, ModelClient>().ReverseMap();
-                ac.CreateMap<Country, ModelCountry>().ReverseMap();
-                ac.CreateMap<Diagnosis, ModelDiagnosis>().ReverseMap();
-                ac.CreateMap<DocStatus, ModelDocStatus>().ReverseMap();
-                ac.CreateMap<Doctor, ModelDoctor>().ReverseMap();
-                ac.CreateMap<Street, ModelStreet>().ReverseMap();
-            });
-        }
+      
 
         public bool LogIn(string login, string password)
         {
