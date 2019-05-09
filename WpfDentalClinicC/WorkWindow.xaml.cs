@@ -39,7 +39,7 @@ namespace WpfDentalClinicC
             txt_Name.Text = client.Name;
             txt_SurName.Text = client.SurName;
             txt_Phone.Text = client.Phone;
-      //      txt_Doctor.Text = client.Doctor.Name;
+            //txt_Doctor.Text = client.Doctor.Name;
             txt_Email.Text = client.Email;
             txt_AdressCountry.Text = client.Country;
             txt_AdressCity.Text = client.City;

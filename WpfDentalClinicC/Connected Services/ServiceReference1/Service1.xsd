@@ -78,7 +78,7 @@
   <xs:element name="AddDiagnosis">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService1.Models" minOccurs="0" name="client" nillable="true" type="q3:Client" />
+        <xs:element minOccurs="0" name="IdClient" type="xs:int" />
         <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="description" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -87,6 +87,20 @@
   <xs:element name="AddDiagnosisResponse">
     <xs:complexType>
       <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MapClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WcfService1.Models" minOccurs="0" name="c" nillable="true" type="q3:Client" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MapClientResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" minOccurs="0" name="MapClientResult" nillable="true" type="q4:ModelClient" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
 </xs:schema>

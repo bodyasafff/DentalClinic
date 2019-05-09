@@ -33,7 +33,7 @@ namespace WpfDentalClinicC
         {
             using (Service1Client service1Client = new Service1Client())
             {
-                //service1Client.AddDiagnosis(Client,txt_NameDiagnosis.Text,txt_Description.Text);
+                service1Client.AddDiagnosis(Client.Id,txt_NameDiagnosis.Text,txt_Description.Text);
                 Close();
             }
         }

@@ -31,7 +31,10 @@ namespace WpfDentalClinicC.ServiceReference1 {
         WcfService1.ModelsToMap.ModelClient GetClient(string login, string password);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/AddDiagnosis", ReplyAction="http://tempuri.org/IService1/AddDiagnosisResponse")]
-        void AddDiagnosis(WcfService1.Models.Client client, string name, string description);
+        void AddDiagnosis(int IdClient, string name, string description);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/MapClient", ReplyAction="http://tempuri.org/IService1/MapClientResponse")]
+        WcfService1.ModelsToMap.ModelClient MapClient(WcfService1.Models.Client c);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -81,8 +84,12 @@ namespace WpfDentalClinicC.ServiceReference1 {
             return base.Channel.GetClient(login, password);
         }
         
-        public void AddDiagnosis(WcfService1.Models.Client client, string name, string description) {
-            base.Channel.AddDiagnosis(client, name, description);
+        public void AddDiagnosis(int IdClient, string name, string description) {
+            base.Channel.AddDiagnosis(IdClient, name, description);
+        }
+        
+        public WcfService1.ModelsToMap.ModelClient MapClient(WcfService1.Models.Client c) {
+            return base.Channel.MapClient(c);
         }
     }
 }

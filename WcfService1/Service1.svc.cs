@@ -40,30 +40,16 @@ namespace WcfService1
             }
             return operationResult;
         }
-        public void AddDiagnosis(Client client,string name, string description)
+        public void AddDiagnosis(int IdClient,string name, string description)
         {
-            bool ChakNameDiagnosis = false;
-            Diagnosis diagnosis = new Diagnosis();
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                foreach (var item in modelClinic.Diagnoses)
-                {
-                    if(item.Name == name)
-                    {
-                        diagnosis = item;
-                        ChakNameDiagnosis = true;
-                        break;
-                    }
-                }
-                if(ChakNameDiagnosis == false)
-                {
-                    diagnosis.Name = name;
-                    diagnosis.Description = description;
-                }
-                var cli = modelClinic.Clients.SingleOrDefault(d => d.Id == client.Id);
-                cli.Diagnoses.Add(diagnosis);
-                modelClinic.SaveChanges();
-            }
+            //bool chek = false;
+
+
+            var diagnos = _dbCtx.Diagnoses.FirstOrDefault(dig => dig.Name == name) ?? new Diagnosis() { Name = name, Description = description };
+            //diagnosis.Description = description;
+            _dbCtx.Clients.FirstOrDefault(f => f.Id == IdClient).Diagnoses.Add(diagnos);
+            //client.Diagnoses.Add(diagnosis);
+            _dbCtx.SaveChanges();
         }
         public bool ChakLoginAddNewClient(string login)
         {
