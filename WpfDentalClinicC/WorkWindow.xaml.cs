@@ -52,5 +52,11 @@ namespace WpfDentalClinicC
             mainWindow.Show();
             Close();
         }
+
+        private void btn_EdtitClientClick(object sender, RoutedEventArgs e)
+        {
+            EditClientWindow editClientWindow = new EditClientWindow(client);
+            editClientWindow.Show();
+        }
     }
 }

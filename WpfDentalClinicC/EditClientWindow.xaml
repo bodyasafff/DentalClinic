@@ -1,0 +1,32 @@
+﻿<Window x:Class="WpfDentalClinicC.EditClientWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfDentalClinicC"
+        mc:Ignorable="d"
+        Title="EditClientWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <TextBlock Text="Name" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Name" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="SurName" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_SurName" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="Email" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Email" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="Phone" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Phone" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="Country" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Country" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="City" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_City" Background="LightGray" FontSize="20"></TextBox>
+            <TextBlock Text="Street" FontSize="20"></TextBlock>
+            <TextBox x:Name="txt_Street" Background="LightGray" FontSize="20"></TextBox>
+            <Button Content="OK" VerticalAlignment="Bottom" HorizontalAlignment="Center" BorderBrush="White" Background="White" FontSize="20" Grid.ColumnSpan="2" Click="btn_EditClient_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

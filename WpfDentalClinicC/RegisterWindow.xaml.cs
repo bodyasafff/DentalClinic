@@ -29,6 +29,7 @@ namespace WpfDentalClinicC
 
         private void btn_AddNewUser_Click(object sender, RoutedEventArgs e)
         {
+            
             ModelClient client = new ModelClient();
             client.Name = txt_Name.Text;
             client.SurName = txt_SurName.Text;

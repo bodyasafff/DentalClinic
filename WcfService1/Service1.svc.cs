@@ -125,7 +125,6 @@ namespace WcfService1
                 return chak;
             }
         }
-
         public ModelClient MapClient(Client c)
         {
             ModelClient modelClient = new ModelClient();
@@ -140,6 +139,16 @@ namespace WcfService1
             modelClient.Country = c.Adress.Country.Name;
             modelClient.Email = c.Email;
             return modelClient;
+        }
+
+        public void EditClient(ModelClient c)
+        {
+            var client = _dbCtx.Clients.FirstOrDefault(cli => cli.Id == c.Id);
+            client.Name = c.Name;
+            client.SurName = c.SurName;
+            client.Phone = c.Phone;
+            client.Email = c.Email;
+            //adrres dorobutu
         }
     }
 }
