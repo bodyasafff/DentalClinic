@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using WcfService1.ModelsToMap;
+using WpfDentalClinicC.ServiceReference1;
+
 
 namespace WpfDentalClinicC
 {
@@ -33,10 +35,22 @@ namespace WpfDentalClinicC
             txt_City.Text = modelClient.City;
             txt_Street.Text = modelClient.Street;
         }
-
         private void btn_EditClient_Click(object sender, RoutedEventArgs e)
         {
-
+            ModelClient m = new ModelClient();
+            m.Id = modelClient.Id;
+            m.Name = txt_Name.Text;
+            m.SurName = txt_SurName.Text;
+            m.Phone = txt_Phone.Text;
+            m.Email = txt_Email.Text;
+            m.Country = txt_Country.Text;
+            m.City = txt_City.Text;
+            m.Street = txt_Street.Text;
+            Service1Client service1Client = new Service1Client();
+            service1Client.EditClient(m);
+            WorkWindow workWindow = new WorkWindow(m);
+            workWindow.Show();
+            Close();
         }
     }
 }

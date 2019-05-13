@@ -47,7 +47,7 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-            <TextBlock Text="Name:" FontSize="20"></TextBlock>
+            <TextBlock x:Name="Test" Text="Name:" FontSize="20"></TextBlock>
             <TextBlock Grid.Row="1" Text="Surname:" FontSize="20"></TextBlock>
             <TextBlock Grid.Row="2" Text="Phone:" FontSize="20"></TextBlock>
             <TextBlock Grid.Row="3" Text="Email:" FontSize="20"></TextBlock>

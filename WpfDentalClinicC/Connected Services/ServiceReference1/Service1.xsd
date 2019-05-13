@@ -103,4 +103,16 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="EditClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" minOccurs="0" name="c" nillable="true" type="q5:ModelClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="EditClientResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

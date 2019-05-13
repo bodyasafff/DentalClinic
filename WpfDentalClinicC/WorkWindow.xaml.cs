@@ -57,6 +57,8 @@ namespace WpfDentalClinicC
         {
             EditClientWindow editClientWindow = new EditClientWindow(client);
             editClientWindow.Show();
+            Close();
+            //txt_Name.Text = editClientWindow.txt_Name.Text;
         }
     }
 }

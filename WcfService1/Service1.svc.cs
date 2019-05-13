@@ -42,30 +42,19 @@ namespace WcfService1
         }
         public void AddDiagnosis(int IdClient,string name, string description)
         {
-            //bool chek = false;
-
-
             var diagnos = _dbCtx.Diagnoses.FirstOrDefault(dig => dig.Name == name) ?? new Diagnosis() { Name = name, Description = description };
-            //diagnosis.Description = description;
             _dbCtx.Clients.FirstOrDefault(f => f.Id == IdClient).Diagnoses.Add(diagnos);
-            //client.Diagnoses.Add(diagnosis);
             _dbCtx.SaveChanges();
         }
         public bool ChakLoginAddNewClient(string login)
         {
             bool Chak = false;
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                Chak = modelClinic.Clients.Any(cl => cl.Login == login);
-            }
+            Chak = _dbCtx.Clients.Any(cl => cl.Login == login);
             return Chak;
         }
         public int CountClient()
         {
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                return modelClinic.Clients.Count();
-            }
+                return _dbCtx.Clients.Count();
         }
         public void Dispose()
         {
@@ -94,9 +83,6 @@ namespace WcfService1
             {
                 modelClinic.Configuration.ProxyCreationEnabled = false;
                 ModelClient operationResult = null;
-
-
-                // try-catch to catch if more than 1 user exists
                 var clientDb = modelClinic.Clients
                     .Include(c1 => c1.Adress)
                     .Include(c2 => c2.Adress.City)
@@ -105,25 +91,23 @@ namespace WcfService1
                     .SingleOrDefault(clt => clt.Login == login && clt.Password == password);
 
                 operationResult = MapClient(clientDb);
-               //operationResult
                return operationResult;
             }
         }
         public bool LogIn(string login, string password)
         {
-            using (ModelClinic modelClinic = new ModelClinic())
-            {
-                bool chak = false;
-                foreach (var item in modelClinic.Clients)
-                {
-                    if (item.Login == login && item.Password == login)
-                    {
-                        chak = true;
-                        break;
-                    }
-                }
-                return chak;
-            }
+            bool chak = false;
+            chak = _dbCtx.Clients.Any(f => f.Login == login && f.Password == password);
+            return chak;
+
+            //foreach (var item in _dbCtx.Clients)
+            //{
+            //    if (item.Login == login && item.Password == login)
+            //    {
+            //        chak = true;
+            //        break;
+            //    }
+            //}
         }
         public ModelClient MapClient(Client c)
         {
@@ -143,12 +127,19 @@ namespace WcfService1
 
         public void EditClient(ModelClient c)
         {
-            var client = _dbCtx.Clients.FirstOrDefault(cli => cli.Id == c.Id);
+            var client = _dbCtx.Clients.SingleOrDefault(cli => cli.Id == c.Id);
             client.Name = c.Name;
             client.SurName = c.SurName;
             client.Phone = c.Phone;
             client.Email = c.Email;
-            //adrres dorobutu
+            Adress adress = new Adress
+            {
+                City = _dbCtx.Cities.FirstOrDefault(cty => cty.Name == c.City) ?? new City { Name = c.City },
+                Street = _dbCtx.Streets.FirstOrDefault(str => str.Name == c.Street) ?? new Street { Name = c.Street },
+                Country = _dbCtx.Countries.FirstOrDefault(ctr => ctr.Name == c.Country) ?? new Country { Name = c.Country },
+            };
+            client.Adress = adress;
+            _dbCtx.SaveChanges();
         }
     }
 }

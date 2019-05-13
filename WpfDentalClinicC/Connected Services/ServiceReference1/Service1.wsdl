@@ -51,6 +51,12 @@
   <wsdl:message name="IService1_MapClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:MapClientResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_EditClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:EditClient" />
+  </wsdl:message>
+  <wsdl:message name="IService1_EditClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:EditClientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="CountClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountClient" message="tns:IService1_CountClient_InputMessage" />
@@ -79,6 +85,10 @@
     <wsdl:operation name="MapClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/MapClient" message="tns:IService1_MapClient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/MapClientResponse" message="tns:IService1_MapClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="EditClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditClient" message="tns:IService1_EditClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditClientResponse" message="tns:IService1_EditClient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -139,6 +149,15 @@
     </wsdl:operation>
     <wsdl:operation name="MapClient">
       <soap:operation soapAction="http://tempuri.org/IService1/MapClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EditClient">
+      <soap:operation soapAction="http://tempuri.org/IService1/EditClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
