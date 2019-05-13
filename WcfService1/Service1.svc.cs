@@ -88,8 +88,9 @@ namespace WcfService1
                     .Include(c2 => c2.Adress.City)
                     .Include(c3 => c3.Adress.Country)
                     .Include(c4 => c4.Adress.Street)
+                    .Include(c5 => c5.Diagnoses)
                     .SingleOrDefault(clt => clt.Login == login && clt.Password == password);
-
+            
                 operationResult = MapClient(clientDb);
                return operationResult;
             }
@@ -122,9 +123,10 @@ namespace WcfService1
             modelClient.City = c.Adress.City.Name;
             modelClient.Country = c.Adress.Country.Name;
             modelClient.Email = c.Email;
+            modelClient.DiagnosisName = c.Diagnoses.Select(f => f.Name).ToArray();
+            modelClient.DiagnosisDesc = c.Diagnoses.Select(f => f.Description).ToArray();
             return modelClient;
         }
-
         public void EditClient(ModelClient c)
         {
             var client = _dbCtx.Clients.SingleOrDefault(cli => cli.Id == c.Id);
@@ -140,6 +142,15 @@ namespace WcfService1
             };
             client.Adress = adress;
             _dbCtx.SaveChanges();
+        }
+
+        public ModelDiagnosis MapDiagosis(Diagnosis diagnosis)
+        {
+            ModelDiagnosis md = new ModelDiagnosis();
+            md.Id = diagnosis.Id;
+            md.Name = diagnosis.Name;
+            md.Description = diagnosis.Description;
+            return md;
         }
     }
 }
