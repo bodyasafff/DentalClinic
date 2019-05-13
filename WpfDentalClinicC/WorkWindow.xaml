@@ -47,17 +47,17 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
-            <TextBlock x:Name="Test" Text="Name:" FontSize="20"></TextBlock>
-            <TextBlock Grid.Row="1" Text="Surname:" FontSize="20"></TextBlock>
-            <TextBlock Grid.Row="2" Text="Phone:" FontSize="20"></TextBlock>
-            <TextBlock Grid.Row="3" Text="Email:" FontSize="20"></TextBlock>
-            <TextBlock Grid.Row="4" Text="Doctor:" FontSize="20"></TextBlock>
-            <TextBlock Grid.Row="5" Text="Adress:" FontSize="20"></TextBlock>
-            <TextBox x:Name="txt_Name" Grid.Column="1" Grid.Row="0" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
-            <TextBox x:Name="txt_SurName" Grid.Column="1" Grid.Row="1" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
-            <TextBox x:Name="txt_Phone" Grid.Column="1" Grid.Row="2" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
-            <TextBox x:Name="txt_Email" Grid.Column="1" Grid.Row="3" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
-            <TextBox x:Name="txt_Doctor" Grid.Column="1" Grid.Row="4" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
+                <TextBlock x:Name="Test" Text="Name:" FontSize="20"></TextBlock>
+                <TextBlock Grid.Row="1" Text="Surname:" FontSize="20"></TextBlock>
+                <TextBlock Grid.Row="2" Text="Phone:" FontSize="20"></TextBlock>
+                <TextBlock Grid.Row="3" Text="Email:" FontSize="20"></TextBlock>
+                <TextBlock Grid.Row="4" Text="Doctor:" FontSize="20"></TextBlock>
+                <TextBlock Grid.Row="5" Text="Adress:" FontSize="20"></TextBlock>
+                <TextBox x:Name="txt_Name" Grid.Column="1" Grid.Row="0" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
+                <TextBox x:Name="txt_SurName" Grid.Column="1" Grid.Row="1" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
+                <TextBox x:Name="txt_Phone" Grid.Column="1" Grid.Row="2" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
+                <TextBox x:Name="txt_Email" Grid.Column="1" Grid.Row="3" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
+                <TextBox x:Name="txt_Doctor" Grid.Column="1" Grid.Row="4" FontSize="20" BorderBrush="White" IsReadOnly="True"></TextBox>
                 <Grid Grid.Row="5" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>

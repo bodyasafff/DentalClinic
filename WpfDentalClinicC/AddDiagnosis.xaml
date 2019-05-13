@@ -11,13 +11,13 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <StackPanel>
+        <ListBox x:Name="Lb_Diagnosis" FontSize="15"></ListBox>
+        <StackPanel Grid.Column="1">
             <TextBlock Text="Diagnosis" FontSize="25"></TextBlock>
             <TextBox x:Name="txt_NameDiagnosis" FontSize="25"></TextBox>
             <TextBlock Text="Description" FontSize="25"></TextBlock>
             <TextBox x:Name="txt_Description" FontSize="25"></TextBox>
-            
         </StackPanel>
-        <Button VerticalAlignment="Bottom" Content="Add" FontSize="25" Click="btn_AddDiagnosisClick"></Button>
+        <Button VerticalAlignment="Bottom" Grid.Column="1" Content="Add" FontSize="25" Click="btn_AddDiagnosisClick"></Button>
     </Grid>
 </Window>

@@ -20,13 +20,20 @@ namespace WpfDentalClinicC
     /// <summary>
     /// Interaction logic for AddDiagnosis.xaml
     /// </summary>
+    public class DiagnosisInfo
+    {
+        string NameDiagnosis { get; set; }
+        string DescDiagnosi { get; set; }
+    }
     public partial class AddDiagnosis : Window
     {
         ModelClient Client = new ModelClient();
         public AddDiagnosis(ModelClient c)
         {
+            List<DiagnosisInfo> diagnosisInfosToGrid = new List<DiagnosisInfo>(); 
             InitializeComponent();
             Client = c;
+            Lb_Diagnosis.ItemsSource = c.DiagnosisName;
         }
 
         private void btn_AddDiagnosisClick(object sender, RoutedEventArgs e)
