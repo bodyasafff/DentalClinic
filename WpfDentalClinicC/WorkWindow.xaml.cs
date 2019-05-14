@@ -39,7 +39,7 @@ namespace WpfDentalClinicC
             txt_Name.Text = client.Name;
             txt_SurName.Text = client.SurName;
             txt_Phone.Text = client.Phone;
-            //txt_Doctor.Text = client.Doctor.Name;
+            txt_Doctor.Text = client.DoctorName + " " + client.DoctoorStatus;
             txt_Email.Text = client.Email;
             txt_AdressCountry.Text = client.Country;
             txt_AdressCity.Text = client.City;
@@ -59,6 +59,13 @@ namespace WpfDentalClinicC
             editClientWindow.Show();
             Close();
             //txt_Name.Text = editClientWindow.txt_Name.Text;
+        }
+
+        private void btn_SetDocClick(object sender, RoutedEventArgs e)
+        {
+            SetDoc setDoc = new SetDoc(client);
+            setDoc.Show();
+            Close();
         }
     }
 }

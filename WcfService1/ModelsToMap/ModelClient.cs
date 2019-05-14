@@ -34,6 +34,8 @@ namespace WcfService1.ModelsToMap
         [DataMember]
         public string Street { get; set; }
         [DataMember]
-        public int DoctorId { get; set; }
+        public string DoctorName { get; set; }
+        [DataMember]
+        public string DoctoorStatus { get; set; }
     }
 }

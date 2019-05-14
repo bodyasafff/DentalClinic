@@ -12,6 +12,10 @@ namespace WpfDentalClinicC
         public MainWindow()
         {
             InitializeComponent();
+            using (Service1Client service1Client = new Service1Client())
+            {
+                service1Client.CountClient();
+            }
         } 
         private void Btn_SignUpClick(object sender, RoutedEventArgs e)
         {

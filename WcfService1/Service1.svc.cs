@@ -89,6 +89,8 @@ namespace WcfService1
                     .Include(c3 => c3.Adress.Country)
                     .Include(c4 => c4.Adress.Street)
                     .Include(c5 => c5.Diagnoses)
+                    .Include(c6 => c6.Doctor)
+                    .Include(c7 => c7.Doctor.DocStatus)
                     .SingleOrDefault(clt => clt.Login == login && clt.Password == password);
             
                 operationResult = MapClient(clientDb);
@@ -125,6 +127,8 @@ namespace WcfService1
             modelClient.Email = c.Email;
             modelClient.DiagnosisName = c.Diagnoses.Select(f => f.Name).ToArray();
             modelClient.DiagnosisDesc = c.Diagnoses.Select(f => f.Description).ToArray();
+            modelClient.DoctorName = c.Doctor.Name;
+            modelClient.DoctoorStatus = c.Doctor.DocStatus.NameStatus;
             return modelClient;
         }
         public void EditClient(ModelClient c)
@@ -151,6 +155,17 @@ namespace WcfService1
             md.Name = diagnosis.Name;
             md.Description = diagnosis.Description;
             return md;
+        }
+
+        public void AddDocToClient(ModelClient c)
+        {
+            var client = _dbCtx.Clients.FirstOrDefault(cl => cl.Id == c.Id);
+            client.Doctor = _dbCtx.Doctors.FirstOrDefault(doc => doc.Name == c.DoctorName)
+            ?? new Doctor{Name = c.DoctorName,
+            DocStatus = _dbCtx.DocStatuses.FirstOrDefault(ds => ds.NameStatus == c.DoctoorStatus)
+            ?? new DocStatus { NameStatus = c.DoctoorStatus }
+            };
+            _dbCtx.SaveChanges();
         }
     }
 }

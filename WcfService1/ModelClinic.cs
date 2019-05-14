@@ -17,5 +17,7 @@ namespace WcfService1
         public virtual DbSet<Country> Countries { get; set; }
         public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Street> Streets { get; set; }
+        public virtual DbSet<Doctor> Doctors { get; set; }
+        public virtual DbSet<DocStatus> DocStatuses { get; set; }
     }
 }

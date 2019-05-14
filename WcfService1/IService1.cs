@@ -25,6 +25,8 @@ namespace WcfService1
         void EditClient(ModelClient c);
         [OperationContract]
         ModelDiagnosis MapDiagosis(Diagnosis diagnosis);
+        [OperationContract]
+        void AddDocToClient(ModelClient c);
       
     }
 }

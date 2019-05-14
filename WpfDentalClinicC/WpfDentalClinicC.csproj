@@ -89,6 +89,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SetDoc.xaml.cs">
+      <DependentUpon>SetDoc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WorkWindow.xaml.cs">
       <DependentUpon>WorkWindow.xaml</DependentUpon>
     </Compile>
@@ -105,6 +108,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SetDoc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,6 +159,7 @@
     <None Include="Properties\DataSources\WcfService1.Models.City.datasource" />
     <None Include="Properties\DataSources\WcfService1.Models.Client.datasource" />
     <None Include="Properties\DataSources\WcfService1.ModelsToMap.ModelClient.datasource" />
+    <None Include="Properties\DataSources\WcfService1.ModelsToMap.ModelDiagnosis.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

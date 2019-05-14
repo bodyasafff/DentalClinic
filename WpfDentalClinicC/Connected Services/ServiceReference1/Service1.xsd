@@ -115,4 +115,30 @@
       <xs:sequence />
     </xs:complexType>
   </xs:element>
+  <xs:element name="MapDiagosis">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/WcfService1.Models" minOccurs="0" name="diagnosis" nillable="true" type="q6:Diagnosis" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="MapDiagosisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" minOccurs="0" name="MapDiagosisResult" nillable="true" type="q7:ModelDiagnosis" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDocToClient">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/WcfService1.ModelsToMap" minOccurs="0" name="c" nillable="true" type="q8:ModelClient" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddDocToClientResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

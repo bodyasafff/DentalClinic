@@ -57,6 +57,18 @@
   <wsdl:message name="IService1_EditClient_OutputMessage">
     <wsdl:part name="parameters" element="tns:EditClientResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_MapDiagosis_InputMessage">
+    <wsdl:part name="parameters" element="tns:MapDiagosis" />
+  </wsdl:message>
+  <wsdl:message name="IService1_MapDiagosis_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MapDiagosisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDocToClient_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocToClient" />
+  </wsdl:message>
+  <wsdl:message name="IService1_AddDocToClient_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddDocToClientResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="CountClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/CountClient" message="tns:IService1_CountClient_InputMessage" />
@@ -89,6 +101,14 @@
     <wsdl:operation name="EditClient">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/EditClient" message="tns:IService1_EditClient_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/EditClientResponse" message="tns:IService1_EditClient_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MapDiagosis">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/MapDiagosis" message="tns:IService1_MapDiagosis_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/MapDiagosisResponse" message="tns:IService1_MapDiagosis_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddDocToClient">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/AddDocToClient" message="tns:IService1_AddDocToClient_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/AddDocToClientResponse" message="tns:IService1_AddDocToClient_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -158,6 +178,24 @@
     </wsdl:operation>
     <wsdl:operation name="EditClient">
       <soap:operation soapAction="http://tempuri.org/IService1/EditClient" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MapDiagosis">
+      <soap:operation soapAction="http://tempuri.org/IService1/MapDiagosis" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddDocToClient">
+      <soap:operation soapAction="http://tempuri.org/IService1/AddDocToClient" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
