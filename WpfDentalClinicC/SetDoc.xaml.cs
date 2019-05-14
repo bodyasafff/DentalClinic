@@ -30,16 +30,26 @@ namespace WpfDentalClinicC
 
         private void btn_SetDocClick(object sender, RoutedEventArgs e)
         {
-            Client.DoctorName = txt_DocName.Text;
-            Client.DoctoorStatus = txt_DocStatus.Text;
-            using (Service1Client service1Client = new Service1Client())
+            if (String.IsNullOrEmpty(txt_DocName.Text))
             {
-                service1Client.AddDocToClient(Client);
+                txt_DocName.Focus();
             }
-            WorkWindow workWindow = new WorkWindow(Client);
-            workWindow.Show();
-            Close();
+            else if (String.IsNullOrEmpty(txt_DocStatus.Text))
+            {
+                txt_DocStatus.Focus();
+            }
+            else
+            {
+                Client.DoctorName = txt_DocName.Text;
+                Client.DoctoorStatus = txt_DocStatus.Text;
+                using (Service1Client service1Client = new Service1Client())
+                {
+                    service1Client.AddDocToClient(Client);
+                }
+                WorkWindow workWindow = new WorkWindow(Client);
+                workWindow.Show();
+                Close();
+            }
         }
-
     }
 }

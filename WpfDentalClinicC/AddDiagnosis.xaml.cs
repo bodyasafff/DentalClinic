@@ -41,7 +41,10 @@ namespace WpfDentalClinicC
             using (Service1Client service1Client = new Service1Client())
             {
                 service1Client.AddDiagnosis(Client.Id,txt_NameDiagnosis.Text,txt_Description.Text);
-                Close();
+                Client = service1Client.GetClient(Client.Login,Client.Password);
+                txt_NameDiagnosis.Text = "";
+                txt_Description.Text = "";
+                Lb_Diagnosis.ItemsSource = Client.DiagnosisName;
             }
         }
     }

@@ -11,6 +11,11 @@
             <RowDefinition Height="0.1*"></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
+        <Grid Background="SaddleBrown">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -21,9 +26,9 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="btn_AddDiagnosis" Content="Diagnosis" Background="SaddleBrown" Click="btn_AddDiagnosisClick"></Button>
             <Button Grid.Column="1" Content="Edit" Background="SaddleBrown" Click="btn_EdtitClientClick"></Button>
-            <Button Grid.Column="2" Content="Doc" Background="SaddleBrown" Click="btn_SetDocClick"></Button>
-            <Button Grid.Column="3" Background="SaddleBrown"></Button>
-            <Button Grid.Column="4" Content="Exit" Background="SaddleBrown" Click="btn_ExitClick"></Button>
+                <Button Grid.Column="2" Content="Doc" Background="SaddleBrown" Click="btn_SetDocClick"></Button>
+            </Grid>
+            <Button Grid.Column="4" HorizontalAlignment="Right" FontSize="20" Content="Exit" Background="SaddleBrown" Click="btn_ExitClick"></Button>
         </Grid>
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
